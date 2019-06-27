@@ -1,0 +1,133 @@
+// Basic Normalize
+
+*:not(input) {
+  outline: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  line-height: 1.15;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+img {
+  display: block;
+}
+
+// Objects
+
+$colors: (
+  "_white": #fff
+);
+
+// Functions
+
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+// Mixins
+
+
+@mixin font($size, $weight) {
+  font: {
+    size: $size;
+    weight: $weight;
+  }
+}
+
+@mixin radius($rds) {
+  -webkit-border-radius: $rds;
+  -moz-border-radius: $rds;
+  -ms-border-radius: $rds;
+  -o-border-radius: $rds;
+  border-radius: $rds;
+}
+
+@mixin transition($type, $trn, $none) {
+  @if $none == true {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+  } @else {
+    -webkit-transition: $type $trn ease-in-out;
+    -moz-transition: $type $trn ease-in-out;
+    -ms-transition: $type $trn ease-in-out;
+    -o-transition: $type $trn ease-in-out;
+    transition: $type $trn ease-in-out;
+  }
+}
+
+@mixin rotate($rv) {
+  -webkit-transform: rotate($rv);
+  -moz-transform: rotate($rv);
+  -ms-transform: rotate($rv);
+  -o-transform: rotate($rv);
+  transform: rotate($rv);
+}
+
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+  -moz-transform: translate($x, $y);
+  -ms-transform: translate($x, $y);
+  -o-transform: translate($x, $y);
+  transform: translate($x, $y);
+}
+
+@mixin scale($sv) {
+  -webkit-transform: scale($sv);
+  -moz-transform: scale($sv);
+  -ms-transform: scale($sv);
+  -o-transform: scale($sv);
+  transform: scale($sv);
+}
+
+@mixin skew($x, $y) {
+  -webkit-transform: skew($x, $y);
+  -moz-transform: skew($x, $y);
+  -ms-transform: skew($x, $y);
+  -o-transform: skew($x, $y);
+  transform: skew($x, $y);
+}
+
+@mixin bshadow($bshd) {
+  -webkit-box-shadow: $bshd;
+  -moz-box-shadow: $bshd;
+  -ms-box-shadow: $bshd;
+  -o-box-shadow: $bshd;
+  box-shadow: $bshd;
+}
+
+@mixin tshadow($tshd) {
+  -webkit-text-shadow: $tshd;
+  -moz-text-shadow: $tshd;
+  -ms-text-shadow: $tshd;
+  -o-text-shadow: $tshd;
+  text-shadow: $tshd;
+}
+
+@mixin animation($name, $duration, $fillMode) {
+  -webkit-animation: $name $duration $fillMode;
+  -moz-animation: $name $duration $fillMode;
+  -ms-animation: $name $duration $fillMode;
+  -o-animation: $name $duration $fillMode;
+  animation: $name $duration $fillMode;
+}
+
+@mixin filter($filter-type, $filter-amount) {
+  -webkit-filter: $filter-type + unquote("(#{$filter-amount})");
+  -moz-filter: $filter-type + unquote("(#{$filter-amount})");
+  -ms-filter: $filter-type + unquote("(#{$filter-amount})");
+  -o-filter: $filter-type + unquote("(#{$filter-amount})");
+  filter: $filter-type + unquote("(#{$filter-amount})");
+}

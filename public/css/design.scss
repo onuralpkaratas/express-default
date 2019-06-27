@@ -1,0 +1,5 @@
+@import "config.scss";
+
+.preload * {
+  @include transition(0, 0, true);
+}
